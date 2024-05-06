@@ -1,0 +1,12 @@
+
+.SUBCKT CMOSInverter Vin Vout Vdd Vss
+
+
+MP Vout Vin Vdd Vdd PMOS W=2u L=1u
+
+
+MN Vout Vin Vss Vss NMOS W=1u L=1u
+
+.ENDS CMOSInverter
+
+
