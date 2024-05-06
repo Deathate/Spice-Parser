@@ -39,15 +39,19 @@ def parse_netlist(file_path):
             if pin.name == "bulk":
                 excludes.append(str(pin.node))
             # print(f"   Connected to {pin}")
+            # G.add_node(element.name)
+            # G.add_node(str(pin.node))
             G.add_edge(element.name, str(pin.node))
             node_names.add(str(pin.node))
     G.remove_nodes_from(excludes)
     # print(G.edges(G.nodes(0)))
     for node_name in node_names:
         if G.edges(node_name):
-            connected_device = list(zip(*G.edges(node_name)))[1]
+            connected_device = list(list(zip(*G.edges(node_name)))[1])
             if len(connected_device) > 1:
+                connected_device.append(node_name)
                 print(connected_device)
+                pass
     # print(G.edges())
     exit()
 
