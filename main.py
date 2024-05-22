@@ -3,7 +3,7 @@ import re
 from pprint import pprint
 from pathlib import Path
 from PySpice.Spice.Parser import SpiceParser
-from PySpice.Spice.Netlist import Circuit, Element
+# from PySpice.Spice.Netlist import Circuit, Element
 import Levenshtein
 
 
@@ -38,7 +38,7 @@ def parse_netlist(file_path):
         for pin in pins:
             if pin.name == "bulk":
                 excludes.append(str(pin.node))
-            # print(f"   Connected to {pin}")
+            print(f"   Connected to {pin}")
             # G.add_node(element.name)
             # G.add_node(str(pin.node))
             G.add_edge(element.name, str(pin.node))
@@ -51,7 +51,7 @@ def parse_netlist(file_path):
             if len(connected_device) > 1:
                 connected_device.append(node_name)
                 print(connected_device)
-                pass
+    print(node_names)
     # print(G.edges())
     exit()
 
